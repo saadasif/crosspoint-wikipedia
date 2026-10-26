@@ -25,7 +25,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run check
-      - run: git diff --exit-code -- wikipedia.crosspoint-plugin
+      # The host-owned checkout is mounted into a container running as root.
+      - run: git -c safe.directory="$GITHUB_WORKSPACE" diff --exit-code -- wikipedia.crosspoint-plugin
       - run: npm test
       - uses: actions/setup-java@v6
         with:
