@@ -14,7 +14,8 @@ test('search, preview and EPUB preserve prose and metadata attribution without r
   await expect(page.locator('.cp-wikipedia script')).toHaveCount(0);
   await page.getByLabel('Include optimized images').uncheck();
   const { zip, bytes, filename } = await download(page);
-  expect(filename).toBe('Maputo [en-57044].epub');
+  // Linux WebKit replaces spaces with underscores in suggested download names.
+  expect(filename).toMatch(/^Maputo[ _]\[en-57044\]\.epub$/);
   expect(bytes.readUInt32LE(0)).toBe(0x04034b50);
   expect(bytes.readUInt16LE(8)).toBe(0);
   expect(bytes.subarray(30, 38).toString()).toBe('mimetype');
