@@ -14,7 +14,7 @@
     "check:fonts": "node tools/check-font-coverage.mjs"
   },
   "devDependencies": {
-    "@playwright/test": "^1.56.0",
+    "@playwright/test": "1.64.1",
     "@types/node": "^24.0.0",
     "esbuild": "^0.25.0",
     "jszip": "3.10.1",
