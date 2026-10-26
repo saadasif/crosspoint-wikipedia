@@ -1,0 +1,189 @@
+{
+  "firmware": {
+    "lib/EpdFont/scripts/fontconvert_sdcard.py": "21441059aa9bf5f429ecddfbf57148022c43e7d5300279b5039a6ea138ee69fb",
+    "lib/EpdFont/scripts/cpfont_version.py": "97181fc45b1c06fa7781c6a5bf9040978b68a79533855628fe4081d2fa730171",
+    "lib/EpdFont/builtinFonts/source/NotoSans/OFL.txt": "be2f3f8727ac2e18b714ad1c4336d4ddb3f3adbeb9a7f70bfab74d21f4d2b3fb",
+    "lib/EpdFont/builtinFonts/source/NotoSans/NotoSans-Regular.ttf": "fe8c022f48d8dd29f17b744d16f9346f4357e16f7d4f7be58b000ae7c291b614",
+    "lib/EpdFont/builtinFonts/source/NotoSans/NotoSans-Bold.ttf": "13a813c49624ae3ba3c5c6e72c5ebffc4b9e1e6ea32f421c04069b037c6ad431",
+    "lib/EpdFont/builtinFonts/source/NotoSans/NotoSans-Italic.ttf": "feb3e57888ce3acb604f270c278cfb304c674306518771619ddbdefca42a066b",
+    "lib/EpdFont/builtinFonts/source/NotoSans/NotoSans-BoldItalic.ttf": "7e34616e092593c340449baf9a259075a054c6419511ccf21ff0d83a1c9dd0d0",
+    "lib/EpdFont/builtinFonts/source/NotoSansArabic/NotoSansArabic-Regular.ttf": "252629ca0e87b6233851249b8cbf7b43445211a8caf199f1b306a19202251508",
+    "lib/EpdFont/builtinFonts/source/NotoSansArabic/NotoSansArabic-Bold.ttf": "a86a704ff8b315082f4859b04c2f8f746f4cefb14553ef10505f143e0d4829d3",
+    "lib/EpdFont/builtinFonts/source/NotoSansArabic/OFL.txt": "a7a5a25eb188bf1cd96982030d53e23c33485c69b1044a562254226857ee13af",
+    "lib/EpdFont/builtinFonts/source/NotoSansHebrew/NotoSansHebrew-Regular.ttf": "671951828bd5c95db818e5bb12dcea2d0c0dda00311888522be061ee6835125e",
+    "lib/EpdFont/builtinFonts/source/NotoSansHebrew/NotoSansHebrew-Bold.ttf": "96f88305d31a8432f0fe6648c853cb9ef77db8e52ada8948ed0c577037d45423",
+    "lib/EpdFont/builtinFonts/source/NotoSansHebrew/OFL.txt": "a2643c6400107f5be499025f0cafc96492be5cf1733d8e4222c15b98302d895a"
+  },
+  "downloads": {
+    "Inter.ttf": {
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/Inter%5Bopsz%2Cwght%5D.ttf",
+      "sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    "Inter-Italic.ttf": {
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/Inter-Italic%5Bopsz%2Cwght%5D.ttf",
+      "sha256": "acd98e64795781b2058f07b18475e0ecee2a0fe2b42a49e2f9e37d0d6bf66ce6"
+    },
+    "Inter-OFL.txt": {
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/inter/OFL.txt",
+      "sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57"
+    },
+    "NotoSansMath.ttf": {
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosansmath/NotoSansMath-Regular.ttf",
+      "sha256": "3f495fe933c06786e4d5f6d86b8ee70b6753a68ee3b9d87528726de0f6e2c47d"
+    },
+    "NotoSansMath-OFL.txt": {
+      "url": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosansmath/OFL.txt",
+      "sha256": "403a95275b469061b7d4371c328e0ada3bc7d63328abe2e88aad5cd243b2fe21"
+    },
+    "NotoSansArmenian.ttf": {
+      "url": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/notosansarmenian/NotoSansArmenian%5Bwdth,wght%5D.ttf",
+      "sha256": "0870908d8318435a5daf1cd280ae15063f990cd9ad60f3e94c734ce9e1ffef71"
+    },
+    "NotoSansArmenian-OFL.txt": {
+      "url": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/notosansarmenian/OFL.txt",
+      "sha256": "0468358b316f69f405b55cadf8a8314e16e3610b8feaad96772bd5d968112d02"
+    },
+    "NotoSansGeorgian.ttf": {
+      "url": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/notosansgeorgian/NotoSansGeorgian%5Bwdth,wght%5D.ttf",
+      "sha256": "dc591156f36842d38996c4a7a17fee9bb58e45da3e2cac7a31b7d33de700adb9"
+    },
+    "NotoSansGeorgian-OFL.txt": {
+      "url": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/notosansgeorgian/OFL.txt",
+      "sha256": "8c02263c5d73d40544f9ed91e30c4e947407057a3cc430d7b786189aeceff6df"
+    },
+    "NotoSansEthiopic.ttf": {
+      "url": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/notosansethiopic/NotoSansEthiopic%5Bwdth,wght%5D.ttf",
+      "sha256": "0dbccc00b22d180ebd6a4bd8a733918a29e709fa6798023adc3e6cd40da65077"
+    },
+    "NotoSansEthiopic-OFL.txt": {
+      "url": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/notosansethiopic/OFL.txt",
+      "sha256": "72606b23f312cb25973958f2892d4d2c2012deabadbf0f763232624a9649fc69"
+    },
+    "NotoSansSymbols2.ttf": {
+      "url": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/notosanssymbols2/NotoSansSymbols2-Regular.ttf",
+      "sha256": "7d5fb73b7ca67a6798101741f5d280a3d016a56a197afcd4199dbb57b4b82a21"
+    },
+    "NotoSansSymbols2-OFL.txt": {
+      "url": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/notosanssymbols2/OFL.txt",
+      "sha256": "b118dd41337806a5d4797052c77caf3bd096aed783e5eb21b4d11154351e1ac0"
+    },
+    "NotoEmoji.ttf": {
+      "url": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/notoemoji/NotoEmoji%5Bwght%5D.ttf",
+      "sha256": "de6c18832938afc99caf132b39d6a30a19bac7f2e812e28db2535b4608d27551"
+    },
+    "NotoEmoji-OFL.txt": {
+      "url": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/notoemoji/OFL.txt",
+      "sha256": "500bb1ccf43df7bbb522112f9133a52b16e1c35e809632f5d8609b179152de5b"
+    },
+    "NotoSansSymbols.ttf": {
+      "url": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/notosanssymbols/NotoSansSymbols%5Bwght%5D.ttf",
+      "sha256": "f7e7e04b4a24b6c78893d50cbfd2b2f6cae49617ab047bfef668d252adb128f7"
+    },
+    "NotoSansSymbols-OFL.txt": {
+      "url": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/notosanssymbols/OFL.txt",
+      "sha256": "b118dd41337806a5d4797052c77caf3bd096aed783e5eb21b4d11154351e1ac0"
+    },
+    "NotoSansMono.ttf": {
+      "url": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/notosansmono/NotoSansMono%5Bwdth,wght%5D.ttf",
+      "sha256": "2cb2adb378a8f574213e23df697050b83c54c27df465a2015552740b2769a081"
+    },
+    "NotoSansMono-OFL.txt": {
+      "url": "https://raw.githubusercontent.com/google/fonts/e7db6ca603fd4862010383ff17ffd6cc4ffac1c0/ofl/notosansmono/OFL.txt",
+      "sha256": "cee9892f9f0cc8fe882c9e9537ee6a89621d86ee7ceaf70b02e2b2b1c25c061a"
+    }
+  },
+  "fallbacks": {
+    "regular": "lib/EpdFont/builtinFonts/source/NotoSans/NotoSans-Regular.ttf",
+    "bold": "lib/EpdFont/builtinFonts/source/NotoSans/NotoSans-Bold.ttf",
+    "italic": "lib/EpdFont/builtinFonts/source/NotoSans/NotoSans-Italic.ttf",
+    "bolditalic": "lib/EpdFont/builtinFonts/source/NotoSans/NotoSans-BoldItalic.ttf"
+  },
+  "notoLicense": "lib/EpdFont/builtinFonts/source/NotoSans/OFL.txt",
+  "scriptFallbacks": {
+    "arabic": {
+      "regular": "lib/EpdFont/builtinFonts/source/NotoSansArabic/NotoSansArabic-Regular.ttf",
+      "bold": "lib/EpdFont/builtinFonts/source/NotoSansArabic/NotoSansArabic-Bold.ttf"
+    },
+    "hebrew": {
+      "regular": "lib/EpdFont/builtinFonts/source/NotoSansHebrew/NotoSansHebrew-Regular.ttf",
+      "bold": "lib/EpdFont/builtinFonts/source/NotoSansHebrew/NotoSansHebrew-Bold.ttf"
+    }
+  },
+  "scriptLicenses": {
+    "NotoSansArabic-OFL.txt": "lib/EpdFont/builtinFonts/source/NotoSansArabic/OFL.txt",
+    "NotoSansHebrew-OFL.txt": "lib/EpdFont/builtinFonts/source/NotoSansHebrew/OFL.txt"
+  },
+  "downloadedFallbacks": {
+    "armenian": {
+      "file": "NotoSansArmenian.ttf",
+      "ranges": [
+        [
+          1328,
+          1423
+        ],
+        [
+          64275,
+          64279
+        ]
+      ]
+    },
+    "georgian": {
+      "file": "NotoSansGeorgian.ttf",
+      "ranges": [
+        [
+          4256,
+          4351
+        ],
+        [
+          7312,
+          7359
+        ],
+        [
+          11520,
+          11567
+        ]
+      ]
+    },
+    "ethiopic": {
+      "file": "NotoSansEthiopic.ttf",
+      "ranges": [
+        [
+          4608,
+          5023
+        ],
+        [
+          11648,
+          11743
+        ],
+        [
+          43776,
+          43823
+        ],
+        [
+          124896,
+          124927
+        ]
+      ]
+    },
+    "symbols2": {
+      "file": "NotoSansSymbols2.ttf",
+      "ranges": [],
+      "characters": "⌚⌛⏳☁☂☃☄☎☏☐☑☒☔☢☣♔♕♖♗♘♙♚♛♜♝♞♟♿⚡⚽⚾⛅⛈⛏⛔✂✉✎✏✐✒✔✕✖✘✚✦✧✩✫✬✭✮✯✰✱✲✳✴✵✷✸✺✻✼✾✿❀❁❂❃❄❅❆❇❈❉❊❋"
+    },
+    "symbols": {
+      "file": "NotoSansSymbols.ttf",
+      "ranges": [],
+      "characters": "☥☦☧☨☩☪☮☯☸☿♁♃♄♅♆♇♈♉♊♋♌♍♎♏♐♑♒♓♻⚐⚑⚒⚓⚔⚕⚖⚙⚛⚜⛨⛪⛰⛵⛺⛽✝✞✟"
+    },
+    "mono-symbols": {
+      "file": "NotoSansMono.ttf",
+      "ranges": [],
+      "characters": "│├┤┬┴┼║╔╗╚╝╠╣╦╩╬▀▄█▌▐░▒▓"
+    },
+    "pictographs": {
+      "file": "NotoEmoji.ttf",
+      "ranges": [],
+      "characters": "⏰➰➿🌀"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "crosspoint-wikipedia",
+  "version": "0.1.3",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node tools/build.mjs",
+    "check": "tsc --noEmit && npm run build && node tools/validate.mjs",
+    "test": "playwright test",
+    "test:epub": "node tools/check-epubs.mjs",
+    "test:articles": "npm run build && node tools/audit-articles.mjs",
+    "dev": "node tools/dev-server.mjs",
+    "package": "npm run check && node tools/package.mjs",
+    "check:fonts": "node tools/check-font-coverage.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^24.0.0",
+    "esbuild": "^0.25.0",
+    "jszip": "3.10.1",
+    "mathjax-full": "3.2.2",
+    "typescript": "^5.9.0"
+  },
+  "overrides": {
+    "@xmldom/xmldom": "0.9.12"
+  }
+}

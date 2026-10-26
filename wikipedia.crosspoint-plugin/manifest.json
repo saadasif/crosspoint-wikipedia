@@ -1,0 +1,27 @@
+{
+  "name": "wikipedia",
+  "title": "Wikipedia",
+  "description": "Import Wikipedia articles from your phone and read them offline.",
+  "author": "Saad Asif",
+  "version": "0.1.3",
+  "mount": "files",
+  "compatibility": {
+    "firmware_family": [
+      "crosspoint"
+    ],
+    "plugin_api_min": 1
+  },
+  "files": [
+    "manifest.json",
+    "plugin.js",
+    "README.md",
+    "DETAILS.md",
+    "LICENSE",
+    "fonts.js",
+    "inter-fonts.zip",
+    "transfer.js",
+    "equations.js",
+    "epub.js",
+    "MathJax-LICENSE.txt"
+  ]
+}

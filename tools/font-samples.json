@@ -1,0 +1,18 @@
+{
+  "Armenian": "Հայաստան հայերեն Երևան",
+  "Georgian": "საქართველო ქართული თბილისი ᲥᲐᲠᲗᲣᲚᲘ",
+  "Ethiopic": "አማርኛ ኢትዮጵያ ትግርኛ",
+  "Latin and Vietnamese": "English français español português Deutsch Türkçe Tiếng Việt Nguyễn Trường",
+  "Greek": "Ελληνικά Ἀθήνα",
+  "Cyrillic": "Русский Україна Български Српски",
+  "Arabic Persian Urdu": "العربية فارسی اردو ﻻ ﻣ ﷲ",
+  "Hebrew": "עברית יִשְׂרָאֵל",
+  "IPA and science": "ə ɹ ʃ ʒ ɲ ɯ ʰ ˈ ˌ θ χ ∫ ∑ ∂ ∞ ≤ ≥ ≠ → × −",
+  "Checks and marks": "✓✔✗✘☐☑☒✕✖✚✝✞✟†‡※⁂",
+  "Chess and games": "♔♕♖♗♘♙♚♛♜♝♞♟♠♡♢♣♤♥♦♧⚀⚁⚂⚃⚄⚅",
+  "Weather and astronomy": "☀☁☂☃☄★☆☉☽☾☿♀♁♂♃♄♅♆♇♈♉♊♋♌♍♎♏♐♑♒♓⚡❄❅❆⛈⛅☔☼",
+  "Spirals and decorative symbols": "🌀➰➿❖✦✧✩✪✫✬✭✮✯✰✱✲✳✴✵✶✷✸✹✺✻✼✽✾✿❀❁❂❃❇❈❉❊❋",
+  "Common pictographs": "☎☏✉✎✏✐✒✂⚑⚐⚠☢☣⚕⚖⚙⚓⚒⚔⚛⚜☮☯☥☦☧☨☩☪☸♻♿⚽⚾⛔⛏⛨⛰⛪⛵⛺⛽⌚⌛⏰⏳",
+  "Geometric symbols and arrows": "■□▢▣▪▫▬▭▮▯▰▱▲△▴▵▶▷▸▹►▻▼▽▾▿◀◁◂◃◄◅◆◇◈◉○◌◍◎●◐◑◒◓◔◕◖◗◘◙◦◯←↑→↓↔↕↖↗↘↙↩↪↶↷↺↻⇐⇑⇒⇓⇔⇕⟲⟳",
+  "Box drawing and blocks": "─│┌┐└┘├┤┬┴┼═║╔╗╚╝╠╣╦╩╬█▓▒░▀▄▌▐"
+}

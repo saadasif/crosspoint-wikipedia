@@ -1,0 +1,106 @@
+[
+  {
+    "title": "Adaptive immune system",
+    "features": "Long article, biological diagrams, nested lists, infobox; full-body export regression"
+  },
+  {
+    "title": "General relativity",
+    "features": "Tensor equations, subscripts, superscripts, sidebar templates"
+  },
+  {
+    "title": "Maxwell's equations",
+    "features": "Aligned equation arrays, vector notation, integral limits"
+  },
+  {
+    "title": "Fourier transform",
+    "features": "Piecewise formulas, transform tables, deeply nested mathematics"
+  },
+  {
+    "title": "Normal distribution",
+    "features": "Distribution infobox, fractions, plots, multi-column formulas"
+  },
+  {
+    "title": "Periodic table",
+    "features": "Color-coded positional grids, element blocks, legends, merged cells"
+  },
+  {
+    "title": "Comparison of programming languages",
+    "features": "Wide comparison matrices, code, repeated headers"
+  },
+  {
+    "title": "List of countries and dependencies by population",
+    "features": "Long sortable table, flags, ranks, merged cells"
+  },
+  {
+    "title": "ISO 3166-1",
+    "features": "Country-code tables, flags, multilingual country names"
+  },
+  {
+    "title": "World War II",
+    "features": "Nested military infobox, shared montage captions, many references"
+  },
+  {
+    "title": "Timeline of the far future",
+    "features": "Long timeline tables, enormous exponents, scientific notation"
+  },
+  {
+    "title": "Solar System",
+    "features": "Image montages, scale diagrams, astronomical symbols"
+  },
+  {
+    "title": "Mount Everest",
+    "features": "Location maps, coordinate templates, elevation data, galleries"
+  },
+  {
+    "title": "Benzene",
+    "features": "Chemical infobox, molecular diagrams, reaction schemes, subscript notation"
+  },
+  {
+    "title": "2022 FIFA World Cup",
+    "features": "Knockout brackets, score cards, flag icons, tournament tables"
+  },
+  {
+    "title": "English language",
+    "features": "IPA, sound samples, language maps, linguistic examples"
+  },
+  {
+    "title": "Arabic",
+    "features": "Bidirectional Arabic text, transliteration, pronunciation tables"
+  },
+  {
+    "title": "Chinese language",
+    "features": "Han characters, tone marks, romanization, language infobox"
+  },
+  {
+    "title": "International Phonetic Alphabet",
+    "features": "IPA charts, diacritics, audio buttons, unusual Unicode"
+  },
+  {
+    "title": "Chess",
+    "features": "Chessboard diagrams, chess-piece Unicode, algebraic notation"
+  },
+  {
+    "title": "Family tree of the British royal family",
+    "features": "Genealogical connector grids, portrait trees, relationship layout"
+  },
+  {
+    "title": "Musical notation",
+    "features": "Staff notation, score images, audio, music-symbol Unicode"
+  },
+  {
+    "title": "Regular expression",
+    "features": "Monospace syntax, preformatted examples, metacharacters, definition lists"
+  },
+  {
+    "title": "Climate change",
+    "features": "Graphs, maps, image galleries, citations and nested sections"
+  },
+  {
+    "title": "Maputo",
+    "features": "Baseline city article, Unicode text, infobox facts, images, captions"
+  },
+  {
+    "title": "Blue whale",
+    "features": "Animal infobox, measurements, images, captions"
+  }
+]

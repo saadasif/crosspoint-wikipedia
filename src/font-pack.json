@@ -1,0 +1,29 @@
+{
+  "family": "InterWiki",
+  "files": [
+    {
+      "size": 12,
+      "name": "InterWiki_12.cpfont",
+      "bytes": 2663674,
+      "sha256": "a9a49a6159987523635c4b7218baee8337be76124d92ed63e5ee780bb573a20d"
+    },
+    {
+      "size": 14,
+      "name": "InterWiki_14.cpfont",
+      "bytes": 3379861,
+      "sha256": "83843fccd20f93f28923ca7aa198265b105d5f0f709efbba172db98196aa42c1"
+    },
+    {
+      "size": 16,
+      "name": "InterWiki_16.cpfont",
+      "bytes": 4202779,
+      "sha256": "32e9840d921a4fbeec13acd6b61b95fd6335970b8ece5ac591c1552c6c6a3be1"
+    },
+    {
+      "size": 18,
+      "name": "InterWiki_18.cpfont",
+      "bytes": 5120361,
+      "sha256": "4a6ef8a26845eb9a49d56abb2187948b1b6a2a01afa70bc3cb580b03a722c302"
+    }
+  ]
+}
