@@ -1,9 +1,10 @@
 import { execFile } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { mkdir, readdir, stat, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, readdir, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { promisify } from 'node:util';
 import JSZip from 'jszip';
+import { epubFingerprint } from './epub-fingerprint.mjs';
 
 const run = promisify(execFile);
 const version = '5.4.0';
@@ -40,11 +41,20 @@ async function epubs(directory) {
 
 const files = process.argv.slice(2).length ? process.argv.slice(2) : await epubs('test-results');
 if (!files.length) throw new Error('No EPUBs found. Run npm test first, or pass EPUB filenames.');
+const unique = new Map();
+for (const filename of files) {
+  const fingerprint = await epubFingerprint(await readFile(filename));
+  const original = unique.get(fingerprint);
+  if (original) console.log(`EPUBCheck duplicate: ${filename} (same contents as ${original})`);
+  else unique.set(fingerprint, filename);
+}
+const candidates = [...unique.values()];
+console.log(`EPUBCheck: ${files.length} files, ${candidates.length} unique books, ${files.length - candidates.length} duplicates skipped`);
 let next = 0;
 const failures = [];
-await Promise.all(Array.from({ length: Math.min(2, files.length) }, async () => {
-  while (next < files.length) {
-    const filename = files[next++];
+await Promise.all(Array.from({ length: Math.min(2, candidates.length) }, async () => {
+  while (next < candidates.length) {
+    const filename = candidates[next++];
     try {
       await run(process.env.EPUBCHECK_JAVA || 'java', ['-jar', jar, filename], { maxBuffer: 1024 * 1024 });
       console.log(`EPUBCheck passed: ${filename}`);
@@ -54,5 +64,5 @@ await Promise.all(Array.from({ length: Math.min(2, files.length) }, async () => 
     }
   }
 }));
-console.log(`${files.length - failures.length}/${files.length} EPUBs passed EPUBCheck ${version}`);
+console.log(`${candidates.length - failures.length}/${candidates.length} unique EPUBs passed EPUBCheck ${version}`);
 if (failures.length) process.exitCode = 1;

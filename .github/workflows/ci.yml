@@ -27,6 +27,7 @@ jobs:
       - run: npm run check
       # The host-owned checkout is mounted into a container running as root.
       - run: git -c safe.directory="$GITHUB_WORKSPACE" diff --exit-code -- wikipedia.crosspoint-plugin
+      - run: node --test tools/epub-fingerprint.test.mjs
       - run: npm test
       - uses: actions/setup-java@v6
         with:

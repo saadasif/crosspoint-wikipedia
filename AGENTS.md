@@ -47,17 +47,21 @@ validation when only a host probe or browser was used.
   reader transfers. Install browsers with `npx playwright install chromium webkit`.
 - `npm run test:epub`: validate browser-test EPUBs with W3C EPUBCheck; requires
   Java 21 or newer. The tool downloads a checksum-pinned EPUBCheck distribution.
+EPUBCheck validates each distinct generated book once, ignoring ZIP timestamps and
+valid generated modification dates. All distinct content and browser assertions
+remain covered; CI also checks the deduplication rules.
+
 - `npm run package`: repeat the build/contract checks and create the installation
   ZIP in `dist/`.
 - `npm run check:fonts -- path/to/article.epub`: audit codepoints against all
   bundled font sizes and styles. Failures include surrounding text. A passing
   corpus does not prove coverage of every English Wikipedia article.
 
-Run `npm run test:articles` for the 26-article Wikipedia audit. It uses actual
+Run `npm run test:articles` for the 12-article Wikipedia audit. It uses actual
 article revisions, Chromium and WebKit, real image and license responses, local
 EPUB downloads, and simulated WebSocket and HTTP reader transfers. It checks every
 XHTML section for validity, bounded size, and horizontal overflow at 480 pixels.
-The corpus and unusual structures are listed in `tools/audit-articles.json`.
+The focused corpus and unusual structures are listed in `tools/audit-articles.json`.
 Source snapshots, cached network responses, EPUBs, screenshots, and `results.json`
 are saved under `.context/complex-articles/`. Remove that directory to refresh the
 sources. This network-dependent audit is separate from deterministic CI tests.
