@@ -45,6 +45,7 @@ for name, source in inputs['downloads'].items():
 # Subset source fonts before instancing. Only cmap glyphs in our declared
 # ranges are needed: the reader consumes bitmaps, not OpenType layout tables.
 # Reuse each upright weight for italic faces of scripts without an italic design.
+# Noto Sans Mono supplies the Som sign missing from Noto Sans italic faces.
 downloaded = {}
 for script, source in inputs['downloadedFallbacks'].items():
     print(f'Preparing {script} fallback...', flush=True)

@@ -178,7 +178,7 @@
     "mono-symbols": {
       "file": "NotoSansMono.ttf",
       "ranges": [],
-      "characters": "│├┤┬┴┼║╔╗╚╝╠╣╦╩╬▀▄█▌▐░▒▓"
+      "characters": "│├┤┬┴┼║╔╗╚╝╠╣╦╩╬▀▄█▌▐░▒▓⃀"
     },
     "pictographs": {
       "file": "NotoEmoji.ttf",
