@@ -2,7 +2,7 @@ import { type Article, type EquationTools } from './types';
 import { normalizeTables } from './tables';
 
 const ALLOWED = new Set('p div span section article aside h1 h2 h3 h4 h5 h6 strong b em i s u sub sup ul ol li dl dt dd blockquote pre code hr br table caption thead tbody tfoot tr th td img figure figcaption'.split(' '));
-const REMOVE = 'script,style,link,iframe,object,embed,form,input,button,textarea,select,svg,video,audio,nav,.navbox,.vertical-navbox,.metadata,.ambox,.sistersitebox,.mw-editsection,.noprint,.nomobile,.mw-empty-elt,.hatnote,.toc,#toc,.mw-references-wrap,.reflist,.references,.reference,.mw-ref,.mw-cite-backlink,.ext-phonos,.navbar,.sidebar,.portalbox,.portal-bar,.portalborder,.authority-control,.dablink,.rellink,.galleryfilename,.magnify';
+const REMOVE = 'script,style,link,iframe,object,embed,form,input,button,textarea,select,svg,video,audio,nav,.navbox,.vertical-navbox,.metadata,.ambox,.sistersitebox,.mw-editsection,.noprint,.nomobile,.mw-empty-elt,.hatnote,.toc,#toc,.reference,.mw-ref,.mw-cite-backlink,.ext-phonos,.navbar,.sidebar,.portalbox,.portal-bar,.portalborder,.authority-control,.dablink,.rellink,.galleryfilename,.magnify';
 export function imageUrl(value: string, source: string): string | undefined {
   try {
     const url = new URL(value, source);
@@ -87,9 +87,9 @@ function imageSource(node: Element, source: string): string | undefined {
 
 function removeSections(root: DocumentFragment): void {
   const headings = Array.from(root.querySelectorAll('h2,h3,h4,h5,h6'));
-  const excluded = new Set('see also|note|notes|explanatory notes|footnote|footnotes|endnote|endnotes|references|citations|bibliography|works cited|further reading|further readings|external links|sources|image credits|contents|table of contents'.split('|'));
+  const excluded = new Set('see also|note|notes|explanatory notes|footnote|footnotes|endnote|endnotes|references|citations|bibliography|general bibliography|works cited|further reading|further readings|external links|sources|image credits|contents|table of contents'.split('|'));
   for (const heading of headings) {
-    if (!root.contains(heading) || !(heading.textContent || '').trim().toLowerCase().replace(/\s+/g, ' ').split(/ (?:and|&) /).every(part => excluded.has(part))) continue;
+    if (!root.contains(heading) || !(heading.textContent || '').trim().toLowerCase().replace(/\s+/g, ' ').split(/,? (?:and|&) |, */).every(part => excluded.has(part))) continue;
     const next = headings.slice(headings.indexOf(heading) + 1).find(node => root.contains(node) && node.tagName <= heading.tagName);
     const range = root.ownerDocument.createRange();
     range.setStartBefore(heading);
@@ -130,7 +130,7 @@ function normalizeTermHeadings(root: HTMLElement, doc: Document): void {
   }
 }
 
-export function cleanArticle(article: Article, equations?: EquationTools): HTMLElement {
+export function cleanArticle(article: Article, equations?: EquationTools, filterSections = true): HTMLElement {
   // Template documents keep image URLs inert throughout cleanup and packaging.
   const template = document.createElement('template');
   template.innerHTML = article.html;
@@ -152,7 +152,10 @@ export function cleanArticle(article: Article, equations?: EquationTools): HTMLE
   fragment.querySelectorAll(REMOVE).forEach(node => node.remove());
   for (const link of fragment.querySelectorAll('a[href*="#cite_note"],a[href*="#cite_ref"]')) (link.closest('sup') || link).remove();
   for (const wrapper of fragment.querySelectorAll('.mw-heading')) wrapper.replaceWith(...wrapper.childNodes);
-  removeSections(fragment);
+  if (filterSections) {
+    fragment.querySelectorAll('.mw-references-wrap,.reflist,.references').forEach(node => node.remove());
+    removeSections(fragment);
+  }
   const sourceRoot = fragment.querySelector('.mw-parser-output') || fragment;
   const lead = Array.from(sourceRoot.children).find(node => node.tagName === 'P' && node.textContent?.trim());
   if (lead) sourceRoot.prepend(lead);

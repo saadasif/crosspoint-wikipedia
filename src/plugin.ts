@@ -1,5 +1,4 @@
 import { mountBatch } from './batch';
-import { PHOTO_LIMIT, PHOTO_BYTES } from './limits';
 import { type Article, type PageRef, type PluginApi, type Report, checkCancelled } from './types';
 import { languageCode, loadArticle, parseArticleUrl, searchArticles } from './wikipedia';
 
@@ -43,9 +42,9 @@ function mount(container: HTMLElement, api: PluginApi): void {
 <section class="wp-preview" hidden aria-label="Article preview">
 <h3></h3><p class="wp-summary"></p><p><a class="wp-source" target="_blank" rel="noopener noreferrer">Read original article</a></p>
 <div class="wp-options"><label class="wp-option"><input type="checkbox" name="images" checked/> Include optimized images</label>
-<p class="wp-muted wp-help">Up to ${PHOTO_LIMIT} grayscale photos (${PHOTO_BYTES / 1_000_000} MB total). Formulas are included separately.</p>
+<label class="wp-option"><input type="checkbox" name="filter-sections" checked/> Filter reference and related sections</label>
+<p class="wp-muted wp-help">Omit references, bibliographies, further reading, see also, and external links.</p>
 <label class="wp-option"><input type="checkbox" name="replace" checked/> Replace existing article</label>
-<p class="wp-muted wp-help">For reader saves only. Replacing resets reading progress and removes saved clippings.</p>
 <p class="wp-muted wp-help">Complex tables and diagrams may be omitted. Check the original for the complete layout.</p>
 </div><div class="wp-actions"><button type="button" class="wp-import wp-primary">Add to reader</button><button type="button" class="wp-download">Download EPUB</button></div>
 <p class="wp-muted wp-help">Add to reader saves in /Wikipedia. Download EPUB saves to this phone or computer.</p>
@@ -71,10 +70,11 @@ function mount(container: HTMLElement, api: PluginApi): void {
   const progress = find<HTMLProgressElement>('progress');
   const cancel = find<HTMLButtonElement>('.wp-cancel');
   const includeImages = find<HTMLInputElement>('[name=images]');
+  const filterSections = find<HTMLInputElement>('[name=filter-sections]');
   const replace = find<HTMLInputElement>('[name=replace]');
   let article: Article | undefined;
   let controller: AbortController | undefined;
-  let cached: { article: Article; images: boolean; epub: Awaited<ReturnType<typeof import('./epub').buildEpub>> } | undefined;
+  let cached: { article: Article; images: boolean; filterSections: boolean; epub: Awaited<ReturnType<typeof import('./epub').buildEpub>> } | undefined;
   const converter = (): Promise<typeof import('./epub')> => import(api.pluginFile('epub.js'));
 
   const report: Report = (message, percent) => {
@@ -172,7 +172,7 @@ function mount(container: HTMLElement, api: PluginApi): void {
 
   async function create(signal: AbortSignal, selected = article, notify: Report = report) {
     if (!selected) throw new Error('Choose an article first.');
-    if (cached?.article === selected && cached.images === includeImages.checked) return cached.epub;
+    if (cached?.article === selected && cached.images === includeImages.checked && cached.filterSections === filterSections.checked) return cached.epub;
     const { buildEpub } = await converter();
     let equations;
     if (selected.html.includes('mwe-math-element') || selected.html.includes('<math')) {
@@ -180,8 +180,8 @@ function mount(container: HTMLElement, api: PluginApi): void {
       try { equations = await import(api.pluginFile('equations.js')); }
       catch { throw new Error('Equation tools unavailable. Reinstall the plugin.'); }
     }
-    const epub = await buildEpub(selected, includeImages.checked, signal, notify, equations);
-    cached = { article: selected, images: includeImages.checked, epub };
+    const epub = await buildEpub(selected, includeImages.checked, signal, notify, equations, filterSections.checked);
+    cached = { article: selected, images: includeImages.checked, filterSections: filterSections.checked, epub };
     return epub;
   }
 

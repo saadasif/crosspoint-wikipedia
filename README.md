@@ -46,7 +46,7 @@ Titles use the batch language field; URLs use their own Wikipedia language.
 Review fetches article metadata, resolves redirects and removes duplicates of the
 same page, retaining the first entry. Full article content loads only during import. Remove invalid entries, or edit the list and review it again.
 
-Choose the shared image and replacement options, then **Add articles to reader**.
+Choose the shared image, section filtering, and replacement options, then **Add articles to reader**.
 Each article is saved as a separate EPUB, one at a time. Individual failures do not
 stop the remaining articles; **Retry failed** retries only unsuccessful entries.
 **Cancel** keeps completed saves and leaves remaining entries available to retry.
@@ -85,8 +85,11 @@ Article links retain their words without clickable links. Pronunciation symbols
 and other Unicode text are preserved; their appearance depends on the selected
 reader font’s coverage. Citation markers, main
 article banners, inline contents, and See also, Notes, References, Sources, Further
-reading, Bibliography, Works cited, Endnotes, External links, and Image credits
-sections (including combined citation headings) are removed. Navigation sidebars,
+reading, Bibliography, General bibliography, Works cited, Endnotes, External links, and Image credits
+sections (including comma-separated and combined citation headings) are removed
+by default. Uncheck **Filter reference and related sections** to keep those sections
+and their reference lists in downloads and reader imports. Citation markers and
+navigation clutter are still removed. Navigation sidebars,
 portal and sister-project promotions, authority control, and template controls are
 also omitted. Substantive Works, Publications, and Filmography sections remain. EPUB navigation
 remains available through the reader’s section menu.
@@ -124,7 +127,7 @@ italic and bold italic faces. Installation skips complete matching files and can
 resume after a failure. After installation, select **InterWiki** manually in
 **Settings → Reader → Font Family**. This reader setting applies to all books.
 
-Inter offers a similar sans-serif appearance to iPhone body text. InterWiki adds
+InterWiki makes articles look more like Wikipedia on phones. InterWiki adds
 broader Unicode ranges and Noto Sans / Noto Sans Math fallback glyphs for English articles,
 pronunciation symbols, combining accents and common scientific symbols. This is
 supplemented by Noto Sans Arabic and Noto Sans Hebrew for Arabic, Persian, Urdu,

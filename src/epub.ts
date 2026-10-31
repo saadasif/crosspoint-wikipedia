@@ -11,8 +11,8 @@ function xhtml(article: Article, title: string, content: string): string {
   return `<?xml version="1.0" encoding="UTF-8"?><html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops" xml:lang="${escapeXml(article.language)}" lang="${escapeXml(article.language)}" dir="${article.rtl ? 'rtl' : 'ltr'}"><head><title>${escapeXml(title)}</title><link rel="stylesheet" type="text/css" href="article.css"/></head><body>${content}</body></html>`;
 }
 
-function attribution(article: Article, assets: ImageAsset[]): string {
-  return `${article.title} — Wikipedia contributors. Revision ${article.revision}. Retrieved ${new Date().toISOString().slice(0, 10)}. Contributor history: ${article.source}?action=history. Revision: https://${article.language}.wikipedia.org/w/index.php?oldid=${article.revision}. ${article.license.text}: ${article.license.url}. Adapted for offline reading: navigation and references removed, layout simplified, sections split, images resized and made grayscale, equations typeset from MathML. ` + assets.filter(asset => !asset.path.startsWith('equations/')).map(asset => `${asset.title}: ${asset.artist}. ${asset.license}: ${asset.licenseUrl}. Original: ${asset.source}. Image resized and made grayscale.`).join(' ');
+function attribution(article: Article, assets: ImageAsset[], filterSections: boolean): string {
+  return `${article.title} — Wikipedia contributors. Revision ${article.revision}. Retrieved ${new Date().toISOString().slice(0, 10)}. Contributor history: ${article.source}?action=history. Revision: https://${article.language}.wikipedia.org/w/index.php?oldid=${article.revision}. ${article.license.text}: ${article.license.url}. Adapted for offline reading: navigation and citation markers removed, ${filterSections ? 'reference and related sections removed, ' : ''}layout simplified, sections split, images resized and made grayscale, equations typeset from MathML. ` + assets.filter(asset => !asset.path.startsWith('equations/')).map(asset => `${asset.title}: ${asset.artist}. ${asset.license}: ${asset.licenseUrl}. Original: ${asset.source}. Image resized and made grayscale.`).join(' ');
 }
 
 export function articleFilename(article: Article): string {
@@ -23,12 +23,12 @@ export function articleFilename(article: Article): string {
   return title + suffix;
 }
 
-export async function buildEpub(article: Article, includeImages: boolean, signal: AbortSignal, report: Report, equations?: EquationTools): Promise<{ bytes: Uint8Array; filename: string; skippedImages: number }> {
+export async function buildEpub(article: Article, includeImages: boolean, signal: AbortSignal, report: Report, equations?: EquationTools, filterSections = true): Promise<{ bytes: Uint8Array; filename: string; skippedImages: number }> {
   checkCancelled(signal);
   report('Preparing article…');
   const Zip = await getZip(signal);
   checkCancelled(signal);
-  const root = cleanArticle(article, equations);
+  const root = cleanArticle(article, equations, filterSections);
   const [{ assets, skipped }, formulas] = await Promise.all([
     prepareImages(root, article, includeImages, signal, report),
     equations ? equations.prepare(root, article, signal, report) : [],
@@ -59,7 +59,7 @@ export async function buildEpub(article: Article, includeImages: boolean, signal
   const modified = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
   const manifest = sections.map((section, index) => `<item id="s${index}" href="${section.file}" media-type="application/xhtml+xml"/>`).join('');
   const images = assets.map((asset, index) => `<item id="i${index}" href="${asset.path}" media-type="${asset.mediaType || 'image/jpeg'}"/>`).join('');
-  zip.file('EPUB/content.opf', `<?xml version="1.0"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="book-id" xml:lang="${e(article.language)}"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="book-id">${e(identifier)}</dc:identifier><dc:title>${e(article.title)}</dc:title><dc:creator>Wikipedia contributors</dc:creator><dc:language>${e(article.language)}</dc:language><dc:publisher>Wikipedia</dc:publisher><dc:source>${e(article.source)}</dc:source><dc:description>${e(attribution(article, assets))}</dc:description><dc:rights>${e(article.license.text)} — ${e(article.license.url)}</dc:rights><meta property="dcterms:modified">${modified}</meta></metadata><manifest>${manifest}${images}<item id="css" href="article.css" media-type="text/css"/><item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/><item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/></manifest><spine toc="ncx" page-progression-direction="${article.rtl ? 'rtl' : 'ltr'}">${sections.map((_, index) => `<itemref idref="s${index}"/>`).join('')}</spine></package>`, { createFolders: false });
+  zip.file('EPUB/content.opf', `<?xml version="1.0"?><package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="book-id" xml:lang="${e(article.language)}"><metadata xmlns:dc="http://purl.org/dc/elements/1.1/"><dc:identifier id="book-id">${e(identifier)}</dc:identifier><dc:title>${e(article.title)}</dc:title><dc:creator>Wikipedia contributors</dc:creator><dc:language>${e(article.language)}</dc:language><dc:publisher>Wikipedia</dc:publisher><dc:source>${e(article.source)}</dc:source><dc:description>${e(attribution(article, assets, filterSections))}</dc:description><dc:rights>${e(article.license.text)} — ${e(article.license.url)}</dc:rights><meta property="dcterms:modified">${modified}</meta></metadata><manifest>${manifest}${images}<item id="css" href="article.css" media-type="text/css"/><item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/><item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/></manifest><spine toc="ncx" page-progression-direction="${article.rtl ? 'rtl' : 'ltr'}">${sections.map((_, index) => `<itemref idref="s${index}"/>`).join('')}</spine></package>`, { createFolders: false });
   report('Packaging EPUB…');
   const bytes = await zip.generateAsync({ type: 'uint8array', compression: 'DEFLATE', compressionOptions: { level: 6 } });
   checkCancelled(signal);

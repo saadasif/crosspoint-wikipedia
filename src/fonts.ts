@@ -14,7 +14,7 @@ async function readerJson<T>(path: string, signal: AbortSignal, init?: RequestIn
 export function mountFonts(host: HTMLElement, api: PluginApi, run: Run, report: Report): void {
   const content = document.createElement('div');
   const installedMB = Math.ceil(pack.files.reduce((total, font) => total + font.bytes, 0) / 1_000_000);
-  content.innerHTML = `<p>Inter Wiki offers an iPhone-like reading style with Arabic, Hebrew, Armenian, Georgian and Ethiopic characters, pronunciation symbols, and scientific, chess and decorative symbols including spirals. Some scripts, including Japanese, Chinese, Korean, Indic and Thai, remain unsupported. Installs 12, 14, 16 and 18 pt (about ${installedMB} MB on the reader).</p><button type="button" class="wp-font-install">Install Inter</button><p class="wp-muted">After installation, choose InterWiki in Settings → Reader → Font Family. Reader font settings apply to all books.</p>`;
+  content.innerHTML = `<p>InterWiki makes articles look more like Wikipedia on phones, with extra language and symbol support. Includes 12–18 pt sizes (about ${installedMB} MB). Some scripts remain unsupported.</p><button type="button" class="wp-font-install">Install Inter</button><p class="wp-muted">Select InterWiki in Settings → Reader → Font Family. Applies to all books.</p>`;
   host.append(content);
   content.querySelector('.wp-font-install')!.addEventListener('click', () => void run(async signal => {
     report('Checking installed fonts…');
