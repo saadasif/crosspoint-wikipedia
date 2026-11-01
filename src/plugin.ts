@@ -33,9 +33,9 @@ function mount(container: HTMLElement, api: PluginApi): void {
 <div class="wp-single">
 <form>
 <label class="wp-query">Article title or Wikipedia URL<span class="wp-query-row"><input type="text" name="query" maxlength="1000" placeholder="Search or paste a Wikipedia link" required autocomplete="off" autocapitalize="none"/>
-<button type="button" class="wp-clear" aria-label="Clear article query">Clear</button></span></label>
+<button type="submit" class="wp-primary">Search</button></span></label>
 <label class="wp-language">Language<input type="text" name="language" value="en" maxlength="31" aria-label="Wikipedia language" autocapitalize="none" spellcheck="false"/></label>
-<button type="submit" class="wp-primary">Search</button>
+<button type="button" class="wp-clear" aria-label="Clear article query">Clear</button>
 </form>
 <p class="wp-muted wp-help">Touch and hold the textbox or right-click to paste.</p>
 <div class="wp-results" aria-label="Search results"></div>

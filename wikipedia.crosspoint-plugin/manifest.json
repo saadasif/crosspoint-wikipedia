@@ -3,7 +3,7 @@
   "title": "Wikipedia",
   "description": "Import Wikipedia articles from your phone and read them offline.",
   "author": "asifengineering",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "mount": "files",
   "compatibility": {
     "firmware_family": [
